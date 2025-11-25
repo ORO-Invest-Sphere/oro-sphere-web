@@ -29,7 +29,7 @@ const LandingPage = () => {
       <section id="home" className="hero-section">
         <div className="hero-overlay"></div>
         <div className="hero-content">
-          <h1>Invest in Cagayan de Oro</h1>
+          <h1>Invest in <span>Cagayan de Oro</span></h1>
           <p>The Gateway to Northern Mindanao and the 4th Most Competitive City in the Philippines.</p>
           <div className="hero-buttons">
             <Link to="/login" className="cta-primary">Start Your Investment Journey</Link>
@@ -92,7 +92,6 @@ const LandingPage = () => {
       <section id="contact" className="contact-section">
         <div className="section-container">
           <h2>Contact Us</h2>
-          <p>Ready to invest? Get in touch with the Trade and Investment Promotions Center.</p>
           <div className="contact-info">
             <p><MapPin size={18} style={{display: 'inline', verticalAlign: 'middle', marginRight: '8px'}} /> City Hall, Cagayan de Oro City</p>
             <p><Mail size={18} style={{display: 'inline', verticalAlign: 'middle', marginRight: '8px'}} /> invest@cagayandeoro.gov.ph</p>

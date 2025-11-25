@@ -1,6 +1,9 @@
 import React from 'react';
-import { TrendingUp, ExternalLink } from 'lucide-react';
+import { TrendingUp, ExternalLink, Coins, Users, Briefcase, Trophy } from 'lucide-react';
 import './EconomicOverview.css';
+import limketkai from '../../assets/limketkai.webp';
+import centrio from '../../assets/centrio.jpg';
+import pueblo from '../../assets/pueblo_de_oro.jpg';
 
 const EconomicOverview = () => {
   return (
@@ -16,7 +19,7 @@ const EconomicOverview = () => {
       {/* Key Metrics */}
       <div className="metrics-grid">
         <div className="metric-card">
-          <div className="metric-icon product-icon"></div>
+          <div className="metric-icon product-icon"><Coins size={24} /></div>
           <div className="metric-info">
             <span className="metric-label">GROSS PRODUCT</span>
             <h3 className="metric-value">₱295.6 B</h3>
@@ -25,7 +28,7 @@ const EconomicOverview = () => {
           </div>
         </div>
         <div className="metric-card">
-          <div className="metric-icon population-icon"></div>
+          <div className="metric-icon population-icon"><Users size={24} /></div>
           <div className="metric-info">
             <span className="metric-label">POPULATION</span>
             <h3 className="metric-value">760,000+</h3>
@@ -33,7 +36,7 @@ const EconomicOverview = () => {
           </div>
         </div>
         <div className="metric-card">
-          <div className="metric-icon services-icon"></div>
+          <div className="metric-icon services-icon"><Briefcase size={24} /></div>
           <div className="metric-info">
             <span className="metric-label">SERVICES SECTOR</span>
             <h3 className="metric-value">76.5%</h3>
@@ -42,7 +45,7 @@ const EconomicOverview = () => {
           </div>
         </div>
         <div className="metric-card">
-          <div className="metric-icon competitive-icon"></div>
+          <div className="metric-icon competitive-icon"><Trophy size={24} /></div>
           <div className="metric-info">
             <span className="metric-label">COMPETITIVENESS</span>
             <h3 className="metric-value">Top 10</h3>
@@ -94,17 +97,17 @@ const EconomicOverview = () => {
         <div className="hubs-section card-panel">
           <h3>Investment Hubs</h3>
           <div className="hubs-grid">
-            <div className="hub-card" style={{backgroundImage: 'linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1580674684081-7617fbf3d745?auto=format&fit=crop&w=500&q=60)'}}>
-              <span>Phividec Industrial</span>
+            <div className="hub-card" style={{backgroundImage: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(${limketkai})`}}>
+              <span>Limketkai Center</span>
             </div>
             <div className="hub-card" style={{backgroundImage: 'linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=500&q=60)'}}>
-              <span>Int'l Seaport</span>
+              <span>Port of Cagayan de Oro</span>
             </div>
-            <div className="hub-card" style={{backgroundImage: 'linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=500&q=60)'}}>
-              <span>Downtown District</span>
+            <div className="hub-card" style={{backgroundImage: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(${centrio})`}}>
+              <span>Ayala Centrio</span>
             </div>
-            <div className="hub-card" style={{backgroundImage: 'linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=500&q=60)'}}>
-              <span>Uptown IT Park</span>
+            <div className="hub-card" style={{backgroundImage: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(${pueblo})`}}>
+              <span>Uptown - Pueblo de Oro </span>
             </div>
           </div>
         </div>

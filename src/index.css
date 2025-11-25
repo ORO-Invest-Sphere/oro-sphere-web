@@ -1,18 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=Roboto:wght@300;400;500;700&display=swap');
+
 :root {
-  --primary-color: #003875; /* Deep Blue - Professional/Gov */
-  --secondary-color: #FDB913; /* Gold/Yellow - Oro (Gold) reference */
-  --accent-color: #00A859; /* Green - Growth/Eco */
-  --bg-color: #f4f6f8;
-  --text-color: #333;
-  --sidebar-width: 250px;
-  --header-height: 60px;
+  /* Palette */
+  --primary-gold: #F59E0B; /* Deep Gold */
+  --primary-dark: #1F2937; /* Dark Charcoal */
+  --bg-light: #F3F4F6;     /* Light Gray Background */
+  --text-dark: #1F2937;
+  --text-light: #F9FAFB;
+  
+  /* Semantic Colors */
+  --primary-color: var(--primary-gold);
+  --secondary-color: var(--primary-dark);
+  --accent-color: #10B981; /* Emerald Green for positive trends */
+  --bg-color: var(--bg-light);
+  --text-color: var(--text-dark);
+
+  /* Layout */
+  --sidebar-width: 260px;
+  --header-height: 80px; /* Taller header for hero feel */
+
+  /* Cards & UI */
+  --card-bg: #FFFFFF;
+  --card-radius: 16px;
+  --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --card-hover-transform: translateY(-5px);
+  --transition-speed: 0.3s;
+
+  /* Typography */
+  --font-display: 'Oswald', sans-serif;
+  --font-body: 'Roboto', sans-serif;
 }
 
 body {
   margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: var(--font-body);
   background-color: var(--bg-color);
   color: var(--text-color);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--primary-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 * {

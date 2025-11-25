@@ -1,28 +1,33 @@
 .incentives-container {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 2.5rem;
   max-width: 1200px;
   margin: 0 auto;
   text-align: center;
 }
 
 .incentives-header h2 {
-  font-size: 2rem;
-  color: #0f172a;
-  margin: 0 0 0.5rem 0;
+  font-size: 2.5rem;
+  color: var(--primary-dark);
+  margin: 0 0 0.75rem 0;
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .incentives-header p {
-  color: #64748b;
+  color: #6B7280;
   font-size: 1.1rem;
   margin: 0;
+  max-width: 700px;
+  margin: 0 auto;
 }
 
 .incentives-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 2rem;
+  gap: 2.5rem;
   text-align: left;
 }
 
@@ -33,82 +38,100 @@
 }
 
 .incentive-card {
-  background: white;
-  border-radius: 12px;
+  background: var(--card-bg);
+  border-radius: var(--card-radius);
   overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-  border: 1px solid #e2e8f0;
+  box-shadow: var(--card-shadow);
+  border: 1px solid rgba(0,0,0,0.05);
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.incentive-card:hover {
+  transform: var(--card-hover-transform);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
 .card-header {
-  padding: 1.5rem;
+  padding: 2rem;
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 1rem;
   color: white;
 }
 
 .incentive-card.local .card-header {
-  background-color: #2563eb; /* Blue */
+  background-color: var(--primary-dark);
+  border-bottom: 4px solid var(--primary-gold);
 }
 
 .incentive-card.national .card-header {
-  background-color: #4f46e5; /* Indigo/Purple */
+  background-color: #374151; /* Lighter charcoal */
+  border-bottom: 4px solid #FCD34D; /* Lighter gold */
 }
 
 .card-header h3 {
   margin: 0;
-  font-size: 1.1rem;
-  font-weight: 600;
+  font-size: 1.4rem;
+  font-weight: 700;
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: white;
 }
 
 .header-icon {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
+  color: var(--primary-gold);
 }
 
 .card-body {
-  padding: 2rem;
+  padding: 2.5rem;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 2.5rem;
 }
 
 .incentive-item {
   display: flex;
-  gap: 1rem;
+  gap: 1.5rem;
   align-items: flex-start;
 }
 
 .item-icon {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   flex-shrink: 0;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
 }
 
 .item-icon.blue-bg {
-  background-color: #eff6ff;
-  color: #2563eb;
+  background-color: rgba(245, 158, 11, 0.1);
+  color: var(--primary-gold);
 }
 
 .item-icon.purple-bg {
-  background-color: #eef2ff;
-  color: #4f46e5;
+  background-color: #F3F4F6;
+  color: var(--primary-dark);
 }
 
 .item-content h4 {
   margin: 0 0 0.5rem 0;
-  color: #0f172a;
-  font-size: 1rem;
+  color: var(--primary-dark);
+  font-size: 1.1rem;
+  font-weight: 700;
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .item-content p {
   margin: 0;
-  color: #64748b;
-  font-size: 0.9rem;
-  line-height: 1.5;
+  color: #6B7280;
+  font-size: 0.95rem;
+  line-height: 1.6;
 }

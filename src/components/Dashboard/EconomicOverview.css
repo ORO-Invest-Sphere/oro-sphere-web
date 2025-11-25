@@ -1,54 +1,75 @@
 .economic-overview {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 2.5rem;
 }
 
 .hero-banner {
-  background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('../../assets/invest-bg.jpg');
+  background-image: linear-gradient(to right, rgba(31, 41, 55, 0.9), rgba(31, 41, 55, 0.7)), url('../../assets/invest-bg.jpg');
   background-size: cover;
   background-position: center;
-  border-radius: 12px;
+  border-radius: var(--card-radius);
   padding: 4rem 3rem;
   color: white;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  box-shadow: var(--card-shadow);
+  border-left: 6px solid var(--primary-gold);
 }
 
 .hero-content h1 {
-  font-size: 2.5rem;
+  font-size: 3rem;
   margin: 0 0 1rem 0;
   font-weight: 700;
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.hero-content h1 span {
+  color: var(--primary-gold);
 }
 
 .hero-content p {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   margin: 0;
-  max-width: 600px;
+  max-width: 700px;
   opacity: 0.9;
+  font-weight: 300;
 }
 
 .metrics-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
 }
 
 .metric-card {
-  background: white;
-  padding: 1.5rem;
-  border-radius: 12px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-shadow);
   display: flex;
   align-items: flex-start;
-  gap: 1rem;
+  gap: 1.5rem;
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.metric-card:hover {
+  transform: var(--card-hover-transform);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  border-color: rgba(245, 158, 11, 0.3);
 }
 
 .metric-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 8px;
-  background-color: #e0f2fe;
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  background-color: rgba(245, 158, 11, 0.15);
+  color: var(--primary-gold);
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .metric-info {
@@ -57,45 +78,50 @@
 }
 
 .metric-label {
-  font-size: 0.75rem;
+  font-size: 0.85rem;
   font-weight: 600;
-  color: #64748b;
+  color: #6B7280;
   text-transform: uppercase;
   margin-bottom: 0.5rem;
+  letter-spacing: 0.5px;
 }
 
 .metric-value {
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: 700;
-  color: #0f172a;
+  color: var(--primary-dark);
   margin: 0 0 0.25rem 0;
+  font-family: var(--font-display);
 }
 
 .metric-trend {
-  font-size: 0.85rem;
-  font-weight: 500;
+  font-size: 0.9rem;
+  font-weight: 600;
 }
 
 .metric-trend.positive {
-  color: #16a34a;
+  color: var(--accent-color);
 }
 
 .metric-sub {
   font-size: 0.85rem;
-  color: #64748b;
+  color: #9CA3AF;
+  margin-top: 0.25rem;
 }
 
 .metric-source {
   font-size: 0.75rem;
-  color: #3b82f6;
+  color: var(--primary-gold);
   text-decoration: none;
-  margin-top: 0.5rem;
+  margin-top: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
 }
 
 .lower-section-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 2rem;
+  gap: 2.5rem;
 }
 
 @media (max-width: 900px) {
@@ -105,78 +131,117 @@
 }
 
 .card-panel {
-  background: white;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  background: var(--card-bg);
+  padding: 2.5rem;
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-shadow);
+  border: 1px solid rgba(0,0,0,0.05);
+  transition: transform var(--transition-speed);
+}
+
+.card-panel:hover {
+  transform: translateY(-3px);
 }
 
 .card-panel h3 {
-  margin: 0 0 1.5rem 0;
-  color: #0f172a;
-  font-size: 1.25rem;
+  margin: 0 0 2rem 0;
+  color: var(--primary-dark);
+  font-size: 1.5rem;
+  border-bottom: 2px solid rgba(245, 158, 11, 0.2);
+  padding-bottom: 1rem;
+  display: inline-block;
 }
 
 .sector-bar-group {
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 .sector-header {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 0.5rem;
-  font-weight: 500;
-  color: #334155;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+  color: var(--primary-dark);
+  font-family: var(--font-display);
+  letter-spacing: 0.5px;
 }
 
 .sector-percent {
-  color: #2563eb;
-  font-weight: 600;
+  color: var(--primary-gold);
+  font-weight: 700;
 }
 
 .progress-bar {
-  height: 8px;
-  background-color: #f1f5f9;
-  border-radius: 4px;
+  height: 10px;
+  background-color: #F3F4F6;
+  border-radius: 5px;
   overflow: hidden;
 }
 
 .progress-fill {
   height: 100%;
-  border-radius: 4px;
+  border-radius: 5px;
 }
 
-.progress-fill.services { background-color: #2563eb; }
-.progress-fill.industry { background-color: #8b5cf6; }
-.progress-fill.agriculture { background-color: #10b981; }
+.progress-fill.services { background-color: var(--primary-dark); }
+.progress-fill.industry { background-color: var(--primary-gold); }
+.progress-fill.agriculture { background-color: var(--accent-color); }
 
 .sector-desc {
-  font-size: 0.85rem;
-  color: #94a3b8;
-  margin-top: 0.25rem;
+  font-size: 0.9rem;
+  color: #6B7280;
+  margin-top: 0.5rem;
 }
 
 .hubs-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
 .hub-card {
-  height: 120px;
-  border-radius: 8px;
+  height: 140px;
+  border-radius: 12px;
   background-size: cover;
   background-position: center;
   display: flex;
   align-items: flex-end;
-  padding: 1rem;
+  padding: 1.5rem;
   color: white;
-  font-weight: 600;
-  font-size: 0.9rem;
+  font-weight: 700;
+  font-size: 1.1rem;
   cursor: pointer;
-  transition: transform 0.2s;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.hub-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  z-index: 1;
+  transition: background 0.3s;
+}
+
+.hub-card span {
+  position: relative;
+  z-index: 2;
 }
 
 .hub-card:hover {
-  transform: scale(1.02);
+  transform: scale(1.03) translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.hub-card:hover::before {
+  background: linear-gradient(to top, rgba(245, 158, 11, 0.8), rgba(31, 41, 55, 0.4));
 }
