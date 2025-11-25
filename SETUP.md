@@ -1,6 +1,6 @@
-# Oro-TIPC Investment Intelligence Dashboard
+# Oro-Invest-Sphere Investment Intelligence Dashboard
 
-This is a React-based dashboard application for the Cagayan de Oro Trade and Investment Promotions Center (Oro-TIPC). It provides economic data, strategic maps, cost calculators, and incentive information for potential investors.
+This is a React-based dashboard application for the Cagayan de Oro Trade and Investment Promotions Center (Oro-Invest-Sphere). It provides economic data, strategic maps, cost calculators, and incentive information for potential investors.
 
 ## Prerequisites
 

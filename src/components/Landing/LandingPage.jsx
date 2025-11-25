@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { MapPin, Mail, Phone } from 'lucide-react';
 import InquiryModal from './InquiryModal';
 import './LandingPage.css';
+import logo from '../../assets/oroinvestsphere.png';
 
 const LandingPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -11,8 +12,8 @@ const LandingPage = () => {
     <div className="landing-container">
       <header className="landing-header">
         <div className="logo-section">
-          <div className="logo-box">OT</div>
-          <span className="logo-title">Oro-TIPC</span>
+          <img src={logo} alt="Oro-Invest-Sphere Logo" className="logo-image" style={{ height: '40px', marginRight: '10px' }} />
+          <span className="logo-title">Oro-Invest-Sphere</span>
         </div>
         <nav className="landing-nav">
           <a href="#home">Home</a>

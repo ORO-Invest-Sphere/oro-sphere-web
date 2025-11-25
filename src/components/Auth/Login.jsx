@@ -3,6 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { Eye, EyeOff, ArrowLeft } from 'lucide-react';
 import { supabase } from '../../lib/supabaseClient';
 import './Login.css';
+import logo from '../../assets/oroinvestsphere.png';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -64,7 +65,7 @@ const Login = () => {
         </Link>
         
         <div className="login-header">
-          <div className="logo-box">OT</div>
+          <img src={logo} alt="Oro-Invest-Sphere Logo" style={{ height: '60px', marginBottom: '1rem' }} />
           <h2>{isSignUp ? 'Create Account' : 'Welcome Back'}</h2>
           <p>{isSignUp ? 'Sign up to get started' : 'Sign in to access the Investment Dashboard'}</p>
         </div>

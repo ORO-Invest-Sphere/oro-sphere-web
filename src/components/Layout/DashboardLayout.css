@@ -36,6 +36,12 @@
   background-color: transparent;
 }
 
+.sidebar-logo {
+  width: 40px;
+  height: auto;
+  object-fit: contain;
+}
+
 .logo-box {
   width: 40px;
   height: 40px;

@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { BarChart3, Map, Calculator, Star, TrendingUp, ClipboardList } from 'lucide-react';
 import { supabase } from '../../lib/supabaseClient';
+import logo from '../../assets/oroinvestsphere.png';
 import './DashboardLayout.css';
 
 const DashboardLayout = ({ children, activeTab, setActiveTab }) => {
@@ -17,9 +18,9 @@ const DashboardLayout = ({ children, activeTab, setActiveTab }) => {
       {/* Sidebar */}
       <aside className="sidebar">
         <div className="sidebar-header">
-          <div className="logo-box">OT</div>
+          <img src={logo} alt="Oro-Invest-Sphere Logo" className="sidebar-logo" />
           <div className="logo-text">
-            <h1>Oro-TIPC</h1>
+            <h1>Oro-Invest-Sphere</h1>
             <p>Investment Intelligence Dashboard</p>
           </div>
         </div>
@@ -74,7 +75,7 @@ const DashboardLayout = ({ children, activeTab, setActiveTab }) => {
         <header className="top-bar">
           <div className="top-bar-left">
             <div className="mobile-logo">OT</div>
-            <span className="page-title">Oro-TIPC <span className="subtitle">Investment Intelligence Dashboard</span></span>
+            <span className="page-title">Oro-Invest-Sphere <span className="subtitle">Investment Intelligence Dashboard</span></span>
           </div>
           <div className="top-bar-right">
             <div className="user-menu">

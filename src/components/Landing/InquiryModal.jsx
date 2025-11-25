@@ -22,7 +22,7 @@ const InquiryModal = ({ isOpen, onClose }) => {
         email: email
       };
       
-      console.log('Sending inquiry to dummy@oro-tipc.gov.ph:', inquiryData);
+      console.log('Sending inquiry to dummy@oro-invest-sphere.gov.ph:', inquiryData);
       alert(`Inquiry sent successfully!\n\nType: ${inquiryData.type}\nDetails: ${inquiryData.details}\nContact: ${inquiryData.email}`);
       
       setIsSubmitting(false);
@@ -42,7 +42,7 @@ const InquiryModal = ({ isOpen, onClose }) => {
         </button>
         
         <div className="modal-header">
-          <h2>Connect with Oro-TIPC</h2>
+          <h2>Connect with Oro-Invest-Sphere</h2>
           <p>Staff for site visits, available warehouse listings, or customized reports.</p>
         </div>
 
