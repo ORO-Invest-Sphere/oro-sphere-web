@@ -6,6 +6,7 @@ import LandingPage from './components/Landing/LandingPage'
 import ApplicationTracker from './components/Tools/ApplicationTracker'
 import Login from './components/Auth/Login'
 import ProtectedRoute from './components/Auth/ProtectedRoute'
+import AuthCallback from './components/Auth/AuthCallback'
 import './App.css'
 
 // Lazy load heavy components
@@ -36,6 +37,7 @@ function App() {
         {/* Public Routes */}
         <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/auth/callback" element={<AuthCallback />} />
 
         {/* Protected Dashboard Routes */}
         <Route path="/dashboard" element={
