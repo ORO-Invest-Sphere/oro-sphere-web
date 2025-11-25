@@ -1,0 +1,45 @@
+[
+  { "id": "Banks-1", "category": "Banks", "lat": 8.4807, "lng": 124.6475, "name": "BDO Unibank - Xavier" },
+  { "id": "Banks-2", "category": "Banks", "lat": 8.4764, "lng": 124.6433, "name": "BPI - Divisoria Branch" },
+  { "id": "Banks-3", "category": "Banks", "lat": 8.4831, "lng": 124.6563, "name": "Metrobank - Limketkai" },
+  
+  { "id": "Churches-1", "category": "Churches", "lat": 8.4754, "lng": 124.6419, "name": "St. Augustine Metropolitan Cathedral" },
+  { "id": "Churches-2", "category": "Churches", "lat": 8.4815, "lng": 124.6496, "name": "Jesus Nazareno Parish Church" },
+  { "id": "Churches-3", "category": "Churches", "lat": 8.4862, "lng": 124.6582, "name": "Our Lady of Manaoag Chapel" },
+
+  { "id": "Fire Stations-1", "category": "Fire Stations", "lat": 8.4767, "lng": 124.6515, "name": "BFP CDO Main Fire Station (Cogon)" },
+  { "id": "Fire Stations-2", "category": "Fire Stations", "lat": 8.4893, "lng": 124.6322, "name": "Carmen Fire Station" },
+
+  { "id": "Gasoline Stations-1", "category": "Gasoline Stations", "lat": 8.4878, "lng": 124.6611, "name": "Shell Station - Gusa" },
+  { "id": "Gasoline Stations-2", "category": "Gasoline Stations", "lat": 8.4925, "lng": 124.6212, "name": "Petron - Bulua" },
+  { "id": "Gasoline Stations-3", "category": "Gasoline Stations", "lat": 8.4820, "lng": 124.6540, "name": "Caltex - Lapasan" },
+
+  { "id": "Health Centers-1", "category": "Health Centers", "lat": 8.4760, "lng": 124.6450, "name": "City Health Office" },
+  { "id": "Health Centers-2", "category": "Health Centers", "lat": 8.4880, "lng": 124.6290, "name": "Carmen Health Center" },
+
+  { "id": "Hotels-1", "category": "Hotels", "lat": 8.4835, "lng": 124.6558, "name": "Limketkai Luxe Hotel" },
+  { "id": "Hotels-2", "category": "Hotels", "lat": 8.4811, "lng": 124.6482, "name": "Seda Centrio" },
+  { "id": "Hotels-3", "category": "Hotels", "lat": 8.4828, "lng": 124.6533, "name": "Mallberry Suites Business Hotel" },
+
+  { "id": "Hospitals-1", "category": "Hospitals", "lat": 8.4855, "lng": 124.6568, "name": "Northern Mindanao Medical Center (NMMC)" },
+  { "id": "Hospitals-2", "category": "Hospitals", "lat": 8.4740, "lng": 124.6405, "name": "Maria Reyna - Xavier University Hospital" },
+  { "id": "Hospitals-3", "category": "Hospitals", "lat": 8.4930, "lng": 124.6190, "name": "Polymedic Medical Plaza" },
+
+  { "id": "Malls-1", "category": "Malls", "lat": 8.4839, "lng": 124.6580, "name": "Limketkai Mall" },
+  { "id": "Malls-2", "category": "Malls", "lat": 8.4813, "lng": 124.6485, "name": "Centrio Mall" },
+  { "id": "Malls-3", "category": "Malls", "lat": 8.4851, "lng": 124.6521, "name": "SM CDO Downtown Premier" },
+
+  { "id": "Police Stations-1", "category": "Police Stations", "lat": 8.4772, "lng": 124.6365, "name": "Divisoria Police Station (PS1)" },
+  { "id": "Police Stations-2", "category": "Police Stations", "lat": 8.4788, "lng": 124.6510, "name": "Cogon Police Station (PS2)" },
+
+  { "id": "Schools-1", "category": "Schools", "lat": 8.4744, "lng": 124.6433, "name": "Xavier University - Ateneo de Cagayan" },
+  { "id": "Schools-2", "category": "Schools", "lat": 8.4849, "lng": 124.6552, "name": "University of Science and Technology (USTP)" },
+  { "id": "Schools-3", "category": "Schools", "lat": 8.4895, "lng": 124.6285, "name": "Liceo de Cagayan University" },
+
+  { "id": "Super Markets-1", "category": "Super Markets", "lat": 8.4785, "lng": 124.6492, "name": "Ororama Supercenter Cogon" },
+  { "id": "Super Markets-2", "category": "Super Markets", "lat": 8.4755, "lng": 124.6445, "name": "Gaisano City Mall" },
+  
+  { "id": "Tourist Spots-1", "category": "Tourist Spots", "lat": 8.4760, "lng": 124.6425, "name": "Gaston Park" },
+  { "id": "Tourist Spots-2", "category": "Tourist Spots", "lat": 8.4312, "lng": 124.6067, "name": "High Ridge" },
+  { "id": "Tourist Spots-3", "category": "Tourist Spots", "lat": 8.4168, "lng": 124.6345, "name": "Macahambus Cave" }
+]

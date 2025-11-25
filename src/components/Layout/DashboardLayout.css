@@ -1,0 +1,246 @@
+:root {
+  --sidebar-bg: #0f172a;
+  --sidebar-text: #94a3b8;
+  --sidebar-active-bg: #2563eb;
+  --sidebar-active-text: #ffffff;
+  --topbar-height: 70px;
+  --sidebar-width: 260px;
+  --bg-color: #f8fafc;
+}
+
+.dashboard-container {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  background-color: var(--bg-color);
+  overflow: hidden;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  width: var(--sidebar-width);
+  background-color: var(--sidebar-bg);
+  color: var(--sidebar-text);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  box-shadow: none;
+}
+
+.sidebar-header {
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  background-color: transparent;
+}
+
+.logo-box {
+  width: 40px;
+  height: 40px;
+  background-color: white;
+  color: var(--sidebar-bg);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 1.2rem;
+}
+
+.logo-text h1 {
+  margin: 0;
+  font-size: 1rem;
+  color: white;
+}
+
+.logo-text p {
+  margin: 0;
+  font-size: 0.65rem;
+  opacity: 0.7;
+}
+
+.sidebar-section-label {
+  padding: 1.5rem 1.5rem 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+
+.sidebar-nav {
+  flex: 1;
+  padding: 0.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: none;
+  border: none;
+  color: var(--sidebar-text);
+  text-align: left;
+  cursor: pointer;
+  font-size: 0.95rem;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.nav-item:hover {
+  background-color: rgba(255,255,255,0.05);
+  color: white;
+}
+
+.nav-item.active {
+  background-color: var(--sidebar-active-bg);
+  color: var(--sidebar-active-text);
+  font-weight: 500;
+  border-left: none;
+}
+
+.nav-icon {
+  font-size: 1.1rem;
+}
+
+.sidebar-widget {
+  padding: 1.5rem;
+}
+
+.widget-card {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  padding: 1rem;
+  border-radius: 12px;
+  color: white;
+}
+
+.widget-label {
+  font-size: 0.75rem;
+  opacity: 0.9;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.widget-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.widget-trend {
+  font-size: 0.8rem;
+  opacity: 0.9;
+  margin-left: 0.25rem;
+}
+
+/* Main Content Styles */
+.main-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.top-bar {
+  height: var(--topbar-height);
+  background-color: white;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+}
+
+.top-bar-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.mobile-logo {
+  display: none; /* Hidden on desktop */
+  background-color: var(--sidebar-bg);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.page-title {
+  font-weight: 700;
+  color: #0f172a;
+  font-size: 1.1rem;
+}
+
+.page-title .subtitle {
+  font-weight: 400;
+  color: #64748b;
+  margin-left: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.top-bar-right {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.user-menu {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.user-greeting {
+  font-size: 0.9rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.logout-btn {
+  background: none;
+  border: 1px solid #e2e8f0;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  color: #64748b;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: all 0.2s;
+}
+
+.logout-btn:hover {
+  background-color: #f1f5f9;
+  color: #ef4444;
+  border-color: #ef4444;
+}
+
+.content-area {
+  flex: 1;
+  padding: 2rem;
+  overflow-y: auto;
+  background-color: var(--bg-color);
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    display: none; /* Simple mobile hide for MVP */
+  }
+  
+  .mobile-logo {
+    display: block;
+  }
+  
+  .top-nav {
+    display: none;
+  }
+  
+  .page-title .subtitle {
+    display: none;
+  }
+}

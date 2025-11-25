@@ -1,0 +1,150 @@
+.calculator-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.calculator-header h2 {
+  color: #0f172a;
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.calculator-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+@media (max-width: 900px) {
+  .calculator-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+.calc-inputs {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.calc-inputs h3 {
+  margin-top: 0;
+  color: #0f172a;
+  margin-bottom: 1.5rem;
+}
+
+.input-group {
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group label {
+  font-weight: 500;
+  color: #334155;
+  margin-bottom: 0.5rem;
+}
+
+.input-group input {
+  padding: 0.75rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.input-group input:focus {
+  border-color: #2563eb;
+}
+
+.input-hint {
+  font-size: 0.8rem;
+  color: #94a3b8;
+  margin-top: 0.25rem;
+}
+
+.calc-btn {
+  width: 100%;
+  padding: 1rem;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-top: 1rem;
+}
+
+.calc-btn:hover {
+  background-color: #1d4ed8;
+}
+
+.calc-results {
+  background-color: #0f172a; /* Dark Blue */
+  color: white;
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.calc-results h3 {
+  margin-top: 0;
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  color: white;
+}
+
+.result-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  color: #cbd5e1;
+}
+
+.result-val {
+  font-weight: 600;
+  color: white;
+  font-family: monospace;
+  font-size: 1.1rem;
+}
+
+.result-divider {
+  height: 1px;
+  background-color: #334155;
+  margin: 1rem 0 2rem 0;
+}
+
+.result-row.total {
+  margin-bottom: 0.5rem;
+}
+
+.result-row.total span:first-child {
+  color: #60a5fa; /* Light Blue */
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.total-val {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.disclaimer {
+  font-size: 0.75rem;
+  color: #64748b;
+  text-align: right;
+  margin-top: 1rem;
+  font-style: italic;
+}

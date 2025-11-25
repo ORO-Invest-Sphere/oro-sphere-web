@@ -1,0 +1,20 @@
+:root {
+  --primary-color: #003875; /* Deep Blue - Professional/Gov */
+  --secondary-color: #FDB913; /* Gold/Yellow - Oro (Gold) reference */
+  --accent-color: #00A859; /* Green - Growth/Eco */
+  --bg-color: #f4f6f8;
+  --text-color: #333;
+  --sidebar-width: 250px;
+  --header-height: 60px;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+* {
+  box-sizing: border-box;
+}
