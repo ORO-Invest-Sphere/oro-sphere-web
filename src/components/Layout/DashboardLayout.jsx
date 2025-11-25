@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { BarChart3, Map, Calculator, Star, TrendingUp } from 'lucide-react';
+import { BarChart3, Map, Calculator, Star, TrendingUp, ClipboardList } from 'lucide-react';
 import { supabase } from '../../lib/supabaseClient';
 import './DashboardLayout.css';
 
@@ -23,33 +23,39 @@ const DashboardLayout = ({ children, activeTab, setActiveTab }) => {
             <p>Investment Intelligence Dashboard</p>
           </div>
         </div>
-        
+
         <div className="sidebar-section-label">MODULES</div>
-        
+
         <nav className="sidebar-nav">
-          <button 
+          <button
             className={`nav-item ${activeTab === 'overview' ? 'active' : ''}`}
             onClick={() => setActiveTab('overview')}
           >
             <BarChart3 size={20} className="nav-icon" /> Economic Overview
           </button>
-          <button 
+          <button
             className={`nav-item ${activeTab === 'map' ? 'active' : ''}`}
             onClick={() => setActiveTab('map')}
           >
             <Map size={20} className="nav-icon" /> Investment Map
           </button>
-          <button 
+          <button
             className={`nav-item ${activeTab === 'calculator' ? 'active' : ''}`}
             onClick={() => setActiveTab('calculator')}
           >
             <Calculator size={20} className="nav-icon" /> Cost Calculator
           </button>
-          <button 
+          <button
             className={`nav-item ${activeTab === 'incentives' ? 'active' : ''}`}
             onClick={() => setActiveTab('incentives')}
           >
             <Star size={20} className="nav-icon" /> Incentives
+          </button>
+          <button
+            className={`nav-item ${activeTab === 'tracker' ? 'active' : ''}`}
+            onClick={() => setActiveTab('tracker')}
+          >
+            <ClipboardList size={20} className="nav-icon" /> App Tracker
           </button>
         </nav>
 
@@ -57,7 +63,7 @@ const DashboardLayout = ({ children, activeTab, setActiveTab }) => {
           <div className="widget-card">
             <span className="widget-label">CDO GDP Growth (2024)</span>
             <div className="widget-value">
-              6.8% <span className="widget-trend"><TrendingUp size={14} style={{display: 'inline', verticalAlign: 'middle'}} /> YoY</span>
+              6.8% <span className="widget-trend"><TrendingUp size={14} style={{ display: 'inline', verticalAlign: 'middle' }} /> YoY</span>
             </div>
           </div>
         </div>
@@ -77,7 +83,7 @@ const DashboardLayout = ({ children, activeTab, setActiveTab }) => {
             </div>
           </div>
         </header>
-        
+
         <main className="content-area">
           {children}
         </main>
