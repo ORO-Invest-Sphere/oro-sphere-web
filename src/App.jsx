@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import DashboardLayout from './components/Layout/DashboardLayout'
 import EconomicOverview from './components/Dashboard/EconomicOverview'
 import LandingPage from './components/Landing/LandingPage'
+import ApplicationTracker from './components/Tools/ApplicationTracker'
 import Login from './components/Auth/Login'
 import ProtectedRoute from './components/Auth/ProtectedRoute'
 import './App.css'
@@ -41,21 +42,9 @@ function App() {
           <ProtectedRoute>
             <DashboardLayout activeTab={activeTab} setActiveTab={setActiveTab}>
               {activeTab === 'overview' && <EconomicOverview />}
-              {activeTab === 'map' && (
-                <Suspense fallback={<LoadingFallback />}>
-                  <MapComponent />
-                </Suspense>
-              )}
-              {activeTab === 'calculator' && (
-                <Suspense fallback={<LoadingFallback />}>
-                  <CostCalculator />
-                </Suspense>
-              )}
-              {activeTab === 'incentives' && (
-                <Suspense fallback={<LoadingFallback />}>
-                  <Incentives />
-                </Suspense>
-              )}
+              {activeTab === 'map' && <MapComponent />}
+              {activeTab === 'calculator' && <CostCalculator />}
+              {activeTab === 'incentives' && <Incentives />}
             </DashboardLayout>
           </ProtectedRoute>
         } />
