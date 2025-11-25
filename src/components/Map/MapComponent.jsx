@@ -71,8 +71,8 @@ const categoryColors = {
   'Super Markets': '#10b981',
   'Tourist Spots': '#8b5cf6',
   'Barangay Boundary': '#ffffff', // White for better contrast in satellite
-  'Flood Hazard': '#3b82f6',
-  'Landslide Hazard': '#854d0e',
+  'Flood Hazard': '#1E90FF', // Updated to match heatmap blue
+  'Landslide Hazard': '#795548', // Updated to match heatmap brown
   'Zoning': '#a855f7',
   'Investment Hotspots': '#ef4444' // Base color for heatmap
 };
@@ -267,12 +267,12 @@ const MapComponent = () => {
     if (activeOverlays['Flood Hazard']) {
       const risk = floodRiskData[name];
       if (risk) {
-        const color = risk === 'High' ? '#1e3a8a' : (risk === 'Medium' ? '#3b82f6' : '#93c5fd');
+        // Blue Gradient for Flood (Heatmap style)
+        const color = risk === 'High' ? '#00008B' : (risk === 'Medium' ? '#1E90FF' : '#87CEFA');
         return {
-          color: '#1e3a8a',
-          weight: 1,
+          stroke: false, // Remove border for heatmap effect
           fillColor: color,
-          fillOpacity: 0.6
+          fillOpacity: 0.7
         };
       }
       return { opacity: 0, fillOpacity: 0 }; 
@@ -282,12 +282,12 @@ const MapComponent = () => {
     if (activeOverlays['Landslide Hazard']) {
        const risk = landslideRiskData[name];
        if (risk) {
-         const color = risk === 'High' ? '#451a03' : (risk === 'Medium' ? '#92400e' : '#d97706');
+         // Brown Gradient for Landslide (Heatmap style)
+         const color = risk === 'High' ? '#3E2723' : (risk === 'Medium' ? '#795548' : '#A1887F');
          return {
-           color: '#451a03',
-           weight: 1,
+           stroke: false, // Remove border for heatmap effect
            fillColor: color,
-           fillOpacity: 0.6
+           fillOpacity: 0.7
          };
        }
        return { opacity: 0, fillOpacity: 0 };
