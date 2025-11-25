@@ -4,11 +4,18 @@ import DataVisualizer from './DataVisualizer';
 import './ApplicationTracker.css';
 
 const ApplicationTracker = () => {
+  // Trigger HMR update
   const [selectedApp, setSelectedApp] = useState(null);
   const [showVisualizer, setShowVisualizer] = useState(false);
+  const [isRequesting, setIsRequesting] = useState(false);
+  const [newRequest, setNewRequest] = useState({
+    office: '',
+    dataType: '',
+    purpose: ''
+  });
 
   // Mock Data
-  const applications = [
+  const [applications, setApplications] = useState([
     {
       id: 'APP-2025-001',
       type: 'Business Permit Renewal',
@@ -117,7 +124,21 @@ const ApplicationTracker = () => {
         ]
       }
     }
+  ]);
+
+  const offices = [
+    { id: 'planning', name: 'City Planning Office' },
+    { id: 'engineering', name: 'City Engineering Office' },
+    { id: 'health', name: 'City Health Office' },
+    { id: 'disaster', name: 'Disaster Risk Reduction Office' }
   ];
+
+  const dataTypes = {
+    planning: ['Zoning Map', 'Land Use Plan', 'Population Data'],
+    engineering: ['Road Network Map', 'Drainage System Map', 'Building Permit Statistics'],
+    health: ['Health Statistics', 'Sanitation Records', 'Disease Surveillance Data'],
+    disaster: ['Flood Hazard Map', 'Landslide Risk Assessment', 'Evacuation Center Locations']
+  };
 
   const handleAppClick = (app) => {
     setSelectedApp(app);
@@ -126,26 +147,107 @@ const ApplicationTracker = () => {
   const handleBack = () => {
     if (showVisualizer) {
       setShowVisualizer(false);
-    } else {
+    } else if (selectedApp) {
       setSelectedApp(null);
+    } else if (isRequesting) {
+      setIsRequesting(false);
+      setNewRequest({ office: '', dataType: '', purpose: '' });
     }
+  };
+
+  const handleRequestSubmit = (e) => {
+    e.preventDefault();
+    const newId = `REQ-2025-${String(applications.length + 1).padStart(3, '0')}`;
+    const date = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+
+    const newApp = {
+      id: newId,
+      type: newRequest.dataType,
+      category: 'data',
+      businessName: 'My Organization', // Default for now
+      submittedDate: date,
+      status: 'Pending',
+      currentStep: 0,
+      steps: [
+        { title: 'Request Submitted', date: date, status: 'completed' },
+        { title: 'Data Extraction', date: 'Pending', status: 'pending' },
+        { title: 'Quality Check', date: 'Pending', status: 'pending' },
+        { title: 'Data Delivery', date: 'Pending', status: 'pending' }
+      ]
+    };
+
+    setApplications([newApp, ...applications]);
+    setIsRequesting(false);
+    setNewRequest({ office: '', dataType: '', purpose: '' });
   };
 
   return (
     <div className="tracker-container">
       <div className="tracker-header">
-        {selectedApp && (
+        {(selectedApp || isRequesting) && (
           <button className="back-btn" onClick={handleBack}>
             <ArrowLeft size={20} />
           </button>
         )}
         <div>
           <h2>Application Tracker</h2>
-          <p className="tracker-subtitle">Track the real-time status of your permits.</p>
+          <p className="tracker-subtitle">Track the real-time status of your permits and data requests.</p>
         </div>
+        {!isRequesting && !selectedApp && (
+          <button className="new-request-btn" onClick={() => setIsRequesting(true)}>
+            + New Request
+          </button>
+        )}
       </div>
 
-      {!selectedApp ? (
+      {isRequesting ? (
+        <div className="request-form-container">
+          <h3>Request Data</h3>
+          <form onSubmit={handleRequestSubmit} className="request-form">
+            <div className="form-group">
+              <label>Select Office</label>
+              <select
+                value={newRequest.office}
+                onChange={(e) => setNewRequest({ ...newRequest, office: e.target.value, dataType: '' })}
+                required
+              >
+                <option value="">-- Select Office --</option>
+                {offices.map(office => (
+                  <option key={office.id} value={office.id}>{office.name}</option>
+                ))}
+              </select>
+            </div>
+
+            {newRequest.office && (
+              <div className="form-group">
+                <label>Select Data Type</label>
+                <select
+                  value={newRequest.dataType}
+                  onChange={(e) => setNewRequest({ ...newRequest, dataType: e.target.value })}
+                  required
+                >
+                  <option value="">-- Select Data Type --</option>
+                  {dataTypes[newRequest.office].map(type => (
+                    <option key={type} value={type}>{type}</option>
+                  ))}
+                </select>
+              </div>
+            )}
+
+            <div className="form-group">
+              <label>Purpose of Request</label>
+              <textarea
+                value={newRequest.purpose}
+                onChange={(e) => setNewRequest({ ...newRequest, purpose: e.target.value })}
+                placeholder="Describe why you need this data..."
+                required
+              />
+            </div>
+
+            <button type="submit" className="submit-btn">Submit Request</button>
+          </form>
+        </div>
+      ) : !selectedApp ? (
         <div className="applications-list">
           {applications.map((app) => (
             <div key={app.id} className="app-card" onClick={() => handleAppClick(app)}>
