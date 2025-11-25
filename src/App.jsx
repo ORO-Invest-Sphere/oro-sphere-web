@@ -6,6 +6,7 @@ import EconomicOverview from './components/Dashboard/EconomicOverview'
 import CostCalculator from './components/Tools/CostCalculator'
 import Incentives from './components/Info/Incentives'
 import LandingPage from './components/Landing/LandingPage'
+import ApplicationTracker from './components/Tools/ApplicationTracker'
 import Login from './components/Auth/Login'
 import ProtectedRoute from './components/Auth/ProtectedRoute'
 import './App.css'
@@ -28,6 +29,7 @@ function App() {
               {activeTab === 'map' && <MapComponent />}
               {activeTab === 'calculator' && <CostCalculator />}
               {activeTab === 'incentives' && <Incentives />}
+              {activeTab === 'tracker' && <ApplicationTracker />}
             </DashboardLayout>
           </ProtectedRoute>
         } />
