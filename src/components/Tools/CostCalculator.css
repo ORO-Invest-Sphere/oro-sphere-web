@@ -42,44 +42,6 @@
   font-family: var(--font-display);
   text-transform: uppercase;
   letter-spacing: 1px;
-  font-size: 1.4rem;
-  border-bottom: 2px solid rgba(245, 158, 11, 0.2);
-  padding-bottom: 1rem;
-  display: inline-block;
-}
-
-.input-group {
-  margin-bottom: 1.5rem;
-  display: flex;
-  flex-direction: column;
-}
-
-.input-group label {
-  margin-top: 0.5rem;
-}
-
-.calc-btn {
-  width: 100%;
-  padding: 1.2rem;
-  background-color: var(--primary-gold);
-  color: var(--primary-dark);
-  border: none;
-  border-radius: 8px;
-  font-weight: 700;
-  font-size: 1.1rem;
-  cursor: pointer;
-  transition: all 0.2s;
-  margin-top: 1.5rem;
-  font-family: var(--font-display);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  box-shadow: 0 4px 10px rgba(245, 158, 11, 0.3);
-}
-
-.calc-btn:hover {
-  background-color: #FCD34D;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 15px rgba(245, 158, 11, 0.4);
 }
 
 .calc-results {
