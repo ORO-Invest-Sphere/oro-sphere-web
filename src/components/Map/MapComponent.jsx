@@ -12,6 +12,8 @@ import mapData from '../../data/mapData.json';
 import barangayData from '../../data/cdo-barangays.json';
 import './MapComponent.css';
 
+// CDO bounding box for filtering landslide hazards - Removed
+
 // Point in Polygon Algorithm
 const isPointInPolygon = (point, vs) => {
   // point = [lng, lat], vs = [[lng, lat], ...]
@@ -83,27 +85,100 @@ const floodRiskData = {
   'Macasandig': 'High',
   'Balulang': 'High',
   'Consolacion': 'High',
-  'Puntod': 'Medium',
+  'Puntod': 'High',
   'Kauswagan': 'Medium',
   'Bonbon': 'High',
-  'Iponan': 'Medium',
-  'Lapasan': 'Medium',
+  'Iponan': 'High',
+  'Lapasan': 'High',
+  'Camaman-an': 'Medium',
+  'Nazareth': 'Medium',
+  'Macabalan': 'High',
+  'Bayabas': 'High',
+  'Bulua': 'Medium',
+  'Patag': 'Medium',
+  'Cugman': 'Medium',
+  'Gusa': 'Medium',
+  'Puerto': 'Medium',
+  'Bugo': 'Medium',
+  'Tablon': 'Medium',
+  'Agusan': 'Medium',
+  'Barangay 1': 'High',
+  'Barangay 2': 'High',
+  'Barangay 3': 'High',
+  'Barangay 4': 'High',
+  'Barangay 5': 'High',
+  'Barangay 6': 'High',
+  'Barangay 7': 'High',
+  'Barangay 8': 'High',
+  'Barangay 9': 'High',
   'Barangay 10': 'High',
+  'Barangay 11': 'High',
+  'Barangay 12': 'High',
   'Barangay 13': 'High',
-  'Barangay 15': 'High'
+  'Barangay 14': 'High',
+  'Barangay 15': 'High',
+  'Barangay 16': 'High',
+  'Barangay 17': 'High',
+  'Barangay 18': 'High',
+  'Barangay 19': 'High',
+  'Barangay 20': 'High',
+  'Barangay 21': 'High',
+  'Barangay 22': 'High',
+  'Barangay 23': 'High',
+  'Barangay 24': 'High',
+  'Barangay 25': 'High',
+  'Barangay 26': 'High',
+  'Barangay 27': 'High',
+  'Barangay 28': 'High',
+  'Barangay 29': 'High',
+  'Barangay 30': 'High',
+  'Barangay 31': 'High',
+  'Barangay 32': 'High',
+  'Barangay 33': 'High',
+  'Barangay 34': 'High',
+  'Barangay 35': 'High',
+  'Barangay 36': 'High',
+  'Barangay 37': 'High',
+  'Barangay 38': 'High',
+  'Barangay 39': 'High',
+  'Barangay 40': 'High'
 };
 
 const landslideRiskData = {
   'Indahag': 'High',
-  'Cugman': 'Medium',
-  'Tablon': 'High',
   'Balubal': 'High',
-  'Agusan': 'Medium',
+  'F.S. Catanico': 'High',
+  'Dansolihon': 'High',
+  'Tignapoloan': 'High',
+  'Besigan': 'High',
+  'Tumpagon': 'High',
+  'Pigsag-an': 'High',
+  'Tuburan': 'High',
+  'Pagalungan': 'High',
+  'Taglimao': 'High',
+  'Lumbia': 'Medium',
+  'Canitoan': 'Medium',
+  'Pagatpat': 'Medium',
+  'San Simon': 'Medium',
+  'Baikingon': 'Medium',
+  'Cugman': 'Low',
+  'Tablon': 'Low',
+  'Agusan': 'Low',
   'Puerto': 'Low',
-  'Gusa': 'Medium'
+  'Gusa': 'Low',
+  'Macasandig': 'Medium'
 };
 
+// Filter landslide geometries to CDO area - Removed
+// Convert GeometryCollection to FeatureCollection for Leaflet - Removed
+
 const getCleanBarangayName = (feature) => {
+  // Use barangay_name from the JSON properties if available
+  if (feature.properties.barangay_name) {
+    return feature.properties.barangay_name;
+  }
+  
+  // Fallback for other GeoJSON formats
   let name = feature.properties.name;
   if (name && name.includes('cagayan-de-oro-city')) {
     const parts = name.split('.');
@@ -207,6 +282,8 @@ const MapComponent = () => {
   const [markers, setMarkers] = useState([]);
   const [barangayStats, setBarangayStats] = useState({});
 
+  // Load landslide hazard data when layer is activated - Removed
+
   // Calculate Investment Stats (Density of POIs per Barangay)
   useEffect(() => {
     const stats = {};
@@ -275,11 +352,12 @@ const MapComponent = () => {
           fillOpacity: 0.7
         };
       }
-      return { opacity: 0, fillOpacity: 0 }; 
+      // If no flood risk data for this barangay, fall through to next check
     }
 
     // Landslide Hazard
     if (activeOverlays['Landslide Hazard']) {
+       // Fallback to barangay-based risk data when actual data isn't loaded
        const risk = landslideRiskData[name];
        if (risk) {
          // Brown Gradient for Landslide (Heatmap style)
@@ -290,7 +368,7 @@ const MapComponent = () => {
            fillOpacity: 0.7
          };
        }
-       return { opacity: 0, fillOpacity: 0 };
+       // If no landslide risk data for this barangay, fall through to next check
     }
 
     // Standard Boundary Style

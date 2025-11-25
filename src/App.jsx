@@ -41,10 +41,13 @@ function App() {
         <Route path="/dashboard" element={
           <ProtectedRoute>
             <DashboardLayout activeTab={activeTab} setActiveTab={setActiveTab}>
-              {activeTab === 'overview' && <EconomicOverview />}
-              {activeTab === 'map' && <MapComponent />}
-              {activeTab === 'calculator' && <CostCalculator />}
-              {activeTab === 'incentives' && <Incentives />}
+              <Suspense fallback={<LoadingFallback />}>
+                {activeTab === 'overview' && <EconomicOverview />}
+                {activeTab === 'map' && <MapComponent />}
+                {activeTab === 'calculator' && <CostCalculator />}
+                {activeTab === 'incentives' && <Incentives />}
+                {activeTab === 'tracker' && <ApplicationTracker />}
+              </Suspense>
             </DashboardLayout>
           </ProtectedRoute>
         } />
