@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
-import { CheckCircle2, Circle, Clock, FileText, ChevronRight, ArrowLeft } from 'lucide-react';
+import { CheckCircle2, Circle, Clock, FileText, ChevronRight, ArrowLeft, Database, BarChart } from 'lucide-react';
+import DataVisualizer from './DataVisualizer';
 import './ApplicationTracker.css';
 
 const ApplicationTracker = () => {
   const [selectedApp, setSelectedApp] = useState(null);
+  const [showVisualizer, setShowVisualizer] = useState(false);
 
   // Mock Data
   const applications = [
     {
-      id: 'APP-2024-001',
+      id: 'APP-2025-001',
       type: 'Business Permit Renewal',
+      category: 'permit',
       businessName: 'Tech Solutions Inc.',
       submittedDate: 'Nov 20, 2025',
       status: 'In Progress',
@@ -23,8 +26,9 @@ const ApplicationTracker = () => {
       ]
     },
     {
-      id: 'APP-2024-002',
+      id: 'APP-2025-002',
       type: 'Building Permit',
+      category: 'permit',
       businessName: 'Green Heights Construction',
       submittedDate: 'Nov 15, 2025',
       status: 'Approved',
@@ -36,6 +40,82 @@ const ApplicationTracker = () => {
         { title: 'Final Assessment', date: 'Nov 19, 2025', status: 'completed' },
         { title: 'Permit Released', date: 'Nov 20, 2025', status: 'completed' }
       ]
+    },
+    {
+      id: 'REQ-2025-001',
+      type: 'Population Data Request',
+      category: 'data',
+      businessName: 'Urban Research Inst.',
+      submittedDate: 'Nov 22, 2025',
+      status: 'Completed', // Changed for demo
+      currentStep: 3,
+      steps: [
+        { title: 'Request Submitted', date: 'Nov 22, 2025', status: 'completed' },
+        { title: 'Data Extraction', date: 'Nov 24, 2025', status: 'completed' },
+        { title: 'Quality Check', date: 'Nov 25, 2025', status: 'completed' },
+        { title: 'Data Delivery', date: 'Nov 26, 2025', status: 'completed' }
+      ],
+      graphData: {
+        type: 'population',
+        data: [
+          { year: '2020', population: 720000 },
+          { year: '2021', population: 735000 },
+          { year: '2022', population: 752000 },
+          { year: '2023', population: 770000 },
+          { year: '2024', population: 795000 },
+          { year: '2025', population: 820000 }
+        ]
+      }
+    },
+    {
+      id: 'REQ-2025-002',
+      type: 'Land Use Map Request',
+      category: 'data',
+      businessName: 'Green Heights Construction',
+      submittedDate: 'Nov 10, 2025',
+      status: 'Completed',
+      currentStep: 3,
+      steps: [
+        { title: 'Request Submitted', date: 'Nov 10, 2025', status: 'completed' },
+        { title: 'Map Generation', date: 'Nov 11, 2025', status: 'completed' },
+        { title: 'Approval', date: 'Nov 12, 2025', status: 'completed' },
+        { title: 'Released', date: 'Nov 12, 2025', status: 'completed' }
+      ],
+      graphData: {
+        type: 'land-use',
+        data: [
+          { name: 'Residential', value: 45 },
+          { name: 'Commercial', value: 25 },
+          { name: 'Industrial', value: 15 },
+          { name: 'Agricultural', value: 10 },
+          { name: 'Institutional', value: 5 }
+        ]
+      }
+    },
+    {
+      id: 'REQ-2025-003',
+      type: 'Disaster Risk Assessment',
+      category: 'data',
+      businessName: 'SafeCity Planners',
+      submittedDate: 'Nov 23, 2025',
+      status: 'Completed', // Changed for demo
+      currentStep: 3,
+      steps: [
+        { title: 'Request Submitted', date: 'Nov 23, 2025', status: 'completed' },
+        { title: 'Risk Analysis', date: 'Nov 26, 2025', status: 'completed' },
+        { title: 'Report Generation', date: 'Nov 28, 2025', status: 'completed' },
+        { title: 'Final Review', date: 'Nov 30, 2025', status: 'completed' }
+      ],
+      graphData: {
+        type: 'disaster-risk',
+        data: [
+          { area: 'Downtown', riskLevel: 3 },
+          { area: 'Riverside', riskLevel: 8 },
+          { area: 'Uptown', riskLevel: 2 },
+          { area: 'Industrial Zone', riskLevel: 5 },
+          { area: 'Coastal', riskLevel: 7 }
+        ]
+      }
     }
   ];
 
@@ -44,7 +124,11 @@ const ApplicationTracker = () => {
   };
 
   const handleBack = () => {
-    setSelectedApp(null);
+    if (showVisualizer) {
+      setShowVisualizer(false);
+    } else {
+      setSelectedApp(null);
+    }
   };
 
   return (
@@ -66,7 +150,7 @@ const ApplicationTracker = () => {
           {applications.map((app) => (
             <div key={app.id} className="app-card" onClick={() => handleAppClick(app)}>
               <div className="app-icon">
-                <FileText size={24} />
+                {app.category === 'data' ? <Database size={24} /> : <FileText size={24} />}
               </div>
               <div className="app-info">
                 <h3>{app.type}</h3>
@@ -82,6 +166,12 @@ const ApplicationTracker = () => {
             </div>
           ))}
         </div>
+      ) : showVisualizer ? (
+        <DataVisualizer
+          data={selectedApp.graphData.data}
+          type={selectedApp.graphData.type}
+          title={selectedApp.type}
+        />
       ) : (
         <div className="timeline-view">
           <div className="timeline-card">
@@ -108,6 +198,12 @@ const ApplicationTracker = () => {
                 </div>
               </div>
             ))}
+
+            {selectedApp.category === 'data' && selectedApp.status === 'Completed' && selectedApp.graphData && (
+              <button className="view-data-btn" onClick={() => setShowVisualizer(true)}>
+                <BarChart size={18} /> View Formatted Data
+              </button>
+            )}
           </div>
         </div>
       )}
