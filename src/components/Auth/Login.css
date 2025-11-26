@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: center;
   background-color: var(--bg-light);
-  background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../../assets/login-bg.webp');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../assets/login-bg.webp');
   background-size: cover;
   background-position: center;
 }
@@ -13,13 +13,14 @@
   background: rgba(255, 255, 255, 0.95);
   padding: 3.5rem;
   border-radius: var(--card-radius);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  box-shadow: var(--card-shadow);
   width: 100%;
   max-width: 450px;
   text-align: center;
   backdrop-filter: blur(12px);
   position: relative;
-  border: 1px solid rgba(255,255,255,0.5);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-top: 6px solid var(--primary-gold);
 }
 
 .back-link {
@@ -46,21 +47,6 @@
   flex-direction: column;
   align-items: center;
   margin-top: 1.5rem;
-}
-
-.login-header .logo-box {
-  width: 60px;
-  height: 60px;
-  background-color: var(--primary-gold);
-  color: var(--primary-dark);
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 900;
-  font-size: 1.8rem;
-  margin-bottom: 1.5rem;
-  box-shadow: 0 4px 10px rgba(245, 158, 11, 0.4);
 }
 
 .login-header h2 {
@@ -103,14 +89,14 @@
   border: 1px solid #D1D5DB;
   border-radius: 8px;
   font-size: 1rem;
+  outline: none;
   transition: all 0.2s;
+  background-color: #F9FAFB;
   width: 100%;
   box-sizing: border-box;
-  background-color: #F9FAFB;
 }
 
 .form-group input:focus {
-  outline: none;
   border-color: var(--primary-gold);
   box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.2);
   background-color: white;
@@ -146,8 +132,8 @@
   color: white;
   border: none;
   border-radius: 8px;
-  font-size: 1.1rem;
   font-weight: 700;
+  font-size: 1.1rem;
   cursor: pointer;
   transition: all 0.2s;
   margin-top: 1rem;
